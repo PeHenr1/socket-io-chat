@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+# 💬 Socket.IO Chat [Fiui, olha a mensagem!]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Um simples **chat em tempo real** construído com **Socket.IO**, **React** no frontend e **Node.js + Express** no backend. Um projeto desenvolvido com fins acadêmicos como parte de uma avaliação da disciplina de Redes de Computadores.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Tópicos
 
-### `npm start`
+- [🔧 Tecnologias](#-tecnologias)
+- [📁 Estrutura do Projeto](#-estrutura-do-projeto)
+- [⚙️ Pré-requisitos e Instalação](#-pré-requisitos-e-instalação)
+- [💻 Como Executar o Projeto](#-como-executar-o-projeto)
+- [🧩 Como Funciona](#-como-funciona)
+- [⭐ Funcionalidades](#-funcionalidades)
+- [🛠️ Contribuições](#️-contribuições)
+- [📄 Licença](#-licença)
+- [🔍 Observações](#-observações)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🔧 Tecnologias
 
-### `npm test`
+- **Socket.IO**
+- **Backend**: Node.js + Express
+- **Frontend**: React
+- **Estilização**: Bootstrap + React-Bootstrap
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📁 Estrutura do Projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+socket/
+├── back/           # Servidor
+│   ├── node_modules/
+│   ├── package.json
+│   └── server.js    # Configura e roda o servidor Socket.IO + Express
+│
+├── front/          # Cliente
+│   ├── node_modules/
+│   ├── package.json
+│   └── src/         # Componentes React, lógica do chat, etc.
+│
+└── .gitignore       # Ignora node_modules e arquivos sensíveis
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚙️ Pré-requisitos e Instalação
 
-### `npm run eject`
+✅ Ter o **Node.js** instalado:  
+🔗 [Download Node.js](https://nodejs.org/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 💻 Como Executar o Projeto
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🖥 Backend (`/back`)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+# Acesse a pasta do servidor
+cd socket/back
 
-## Learn More
+# Instale as dependências
+npm install socket.io
+npm install express
+npm install cors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Verifique se os pacotes foram instalados corretamente
+npm list express socket.io
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Inicie o servidor
+node server.js
+```
 
-### Code Splitting
+### 🌐 Frontend (`/front`)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+# Crie o projeto React (caso ainda não tenha criado)
+npx create-react-app front
 
-### Analyzing the Bundle Size
+# Acesse a pasta
+cd socket/front
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Instale os pacotes necessários
+npm install socket.io-client axios
+npm install react-bootstrap bootstrap
 
-### Making a Progressive Web App
+# Inicie o frontend
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🧩 Como Funciona
 
-### Advanced Configuration
+1. O cliente React se conecta ao servidor usando **Socket.IO**.
+2. O usuário informa um nickname e entra no chat.
+3. Mensagens são enviadas ao servidor e imediatamente distribuídas para todos os usuários conectados.
+4. A lista de usuários online é atualizada em tempo real conforme novas conexões e desconexões ocorrem.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## ⭐ Funcionalidades
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- ✅ Comunicação em tempo real via WebSockets (Socket.IO)
+- 👥 Lista de usuários online
+- 🔐 Login com nickname
+- 📥 Exibição automática de novas mensagens no chat
+- 📤 Input de mensagem com envio via botão ou tecla Enter
+- 💡 Interface moderna com React e Bootstrap
+- ⚡ Atualização instantânea sem necessidade de recarregar a página
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📄 Licença
+
+Este projeto está licenciado sob a **MIT License**.  
+Você é livre para usá-lo, modificar, estudar e compartilhar. Só lembre de dar os devidos créditos. 🤝
+
+---
+
+## 🔍 Observações
+
+💬 Este projeto é **aberto para contribuições**!  
+Se você quiser adicionar novas funcionalidades, corrigir bugs ou melhorar o design, **sinta-se à vontade para colaborar**.
+
+🚧 **Melhorias futuras estão planejadas**, como:
+- Autenticação mais funcional e robusta
+- Armazenamento de histórico de mensagens
+- Interface dark/light mode
+- Suporte a múltiplas salas(?)
+- Melhorias no sistema de expiração de sessão..
+
+Vamos construir juntos! 🙌
+Feito com ❤️ por @PeHenr1 e @matos-vinicius
